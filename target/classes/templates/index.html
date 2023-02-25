@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <title>Inicio de sesión</title>
+
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
+    <!-- Los iconos tipo Solid de Fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+
+    <!-- Nuestro css-->
+    <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/index.css}">
+
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+
+</head>
+<body>
+    <header>
+        <img src="static/img/logo_acoes.PNG" th:src="@{/img/logo_acoes.PNG}"/>
+    </header>
+
+    <div class="modal-dialog text-center">
+        <div class="col-sm-8 main-section">
+            <div class="modal-content">
+                <div class="col-12 user-img">
+                    <img src="static/img/user.png" th:src="@{/img/user.png}"/>
+                </div>
+                <form class="col-12" th:action="@{/login}" method="post" th:object="${usuario}">
+                    <div class="form-group" id="user-group">
+                        <input type="text" class="form-control" placeholder="Nombre de usuario" name="username" id="nombre" />
+                    </div>
+                    <div class="form-group" id="contrasena-group">
+                        <input type="password" class="form-control" placeholder="Contraseña" name="password"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
+                </form>
+
+                <div class="col-12 forgot">
+                    <a href="#">Recordar contraseña</a>
+                </div>
+                <div th:if="${param.error}" class="alert alert-danger" role="alert">
+		            Nombre de usuario o contraseña incorrectos.
+		        </div>
+		        <div th:if="${param.logout}" class="alert alert-success" role="alert">
+		            Su sesión ha sido cerrada.
+		        </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="box__copyright">
+            <hr>
+            <div class="container__footer">
+                <div class="box__footer">
+                    <h4>Redes Sociales</h2>
+                    <hr>
+                    <div>
+                        <a href="https://www.facebook.com/acoeshonduras/"><i class="fab fa-facebook-square"></i></a>
+                        <a href="https://twitter.com/AcoesHonduras"><i class="fab fa-twitter-square"></i></a>
+                        <a href="https://www.youtube.com/channel/UCFL2saKnh3eLlMvg3sgNb4A/featured"><i class="fab fa-youtube-square"></i></a>
+                        <a href="https://www.instagram.com/acoes_ong/"><i class="fab fa-instagram-square"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p>Todos los derechos reservados © 2023 <b>ACOES</b></p>
+        </div>
+    </footer>
+</body>
+</html>
