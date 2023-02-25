@@ -1,6 +1,5 @@
 package es.uma.mcc.matriculas.model;
 
-import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.*;
